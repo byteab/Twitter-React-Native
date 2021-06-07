@@ -7,7 +7,7 @@ module.exports = {
     'no-semi': 1,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'react-native/no-unused-styles': 2,
+    'react-native/no-unused-styles': 1,
     'react-native/split-platform-components': 2,
     'react-native/no-inline-styles': 2,
     'react-native/no-color-literals': 1,
