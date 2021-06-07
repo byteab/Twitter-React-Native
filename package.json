@@ -8,18 +8,23 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/match-media": "^0.1.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "expo": "~41.0.1",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
-    "react-native-web": "~0.13.12"
+    "react-native-responsive-screen": "^1.4.2",
+    "react-native-svg": "12.1.0",
+    "react-native-web": "~0.13.12",
+    "react-responsive": "^8.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
+    "@types/react-responsive": "^8.0.2",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
     "eslint": "^7.28.0",
