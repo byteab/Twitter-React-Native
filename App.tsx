@@ -1,15 +1,15 @@
+import '@expo/match-media'
 import {StatusBar} from 'expo-status-bar'
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
+import {SideBar} from './src/Components/SideBar'
+import {useWidth} from './src/Hooks/useWidth'
 
 export default function App() {
-  const abc = 23
-  useEffect(() => {
-    console.log(abc)
-  }, [])
+  const width = useWidth()
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <SideBar />
       <StatusBar style="auto" />
     </View>
   )
@@ -21,8 +21,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  bb: {
-    backgroundColor: 'red',
   },
 })
