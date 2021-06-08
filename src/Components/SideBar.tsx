@@ -51,22 +51,32 @@ export function SideBar() {
     return (
       <View
         style={{
-          backgroundColor: 'rgba(0,0,0,0.05)',
+          backgroundColor: '#fff',
           height: WindowHeight,
           // width: '30%',
-          paddingHorizontal: 20,
+          paddingHorizontal: 5,
+          flex: isFullSideBar ? 1 : 0.5,
+          alignItems: 'center',
+          borderColor: colors.COLOR_BLACK_LIGHT_6,
+          borderRightWidth: 0.1,
         }}>
-        <TwitterIcon
-          width={30}
-          height={30}
-          fill={colors.primaryColor}
+        <View
           style={{
-            paddingVertical: 20,
-          }}
-        />
-        {sideBarData.map(({title, iconName}) => {
-          return <SideBarItem iconName={iconName} title={title} />
-        })}
+            justifyContent: 'center',
+            backgroundColor: '#fff',
+          }}>
+          <TwitterIcon
+            width={30}
+            height={30}
+            fill={colors.primaryColor}
+            style={{
+              paddingVertical: 20,
+            }}
+          />
+          {sideBarData.map(({title, iconName}) => {
+            return <SideBarItem iconName={iconName} title={title} />
+          })}
+        </View>
       </View>
     )
   } else {
