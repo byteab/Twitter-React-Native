@@ -1,5 +1,6 @@
 import React from 'react'
 import {View, Text} from 'react-native'
+import {Pressable} from 'react-native-web-hover'
 import Twitter from '../assets/SVGs/Twitter'
 import Bell from '../assets/SVGs/Bell'
 import Book from '../assets/SVGs/Book'
@@ -11,6 +12,7 @@ import Profile from '../assets/SVGs/Profile'
 import Search from '../assets/SVGs/Search'
 import ThreeDots from '../assets/SVGs/ThreeDots'
 import {useMediaQuery} from 'react-responsive'
+import {colors} from '../styles/colors'
 
 enum iconNames {
   'twitter',
@@ -34,16 +36,27 @@ export function SideBarItem({
 }) {
   const isFullSideBar = useMediaQuery({minWidth: 1266})
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        width: '100%',
-        marginBottom: 35,
-      }}>
-      <Icon iconName={iconName} width={30} height={30} />
-      {isFullSideBar ? <Text style={{marginStart: 20}}>{title}</Text> : null}
-    </View>
+    <Pressable
+      style={({pressed, hovered}) => [
+        hovered ? {backgroundColor: colors.COLOR_BLACK_LIGHT_6} : {},
+        {
+          flexDirection: 'row',
+          alignItems: 'center',
+          width: 'fit-content',
+          marginBottom: 10,
+          marginEnd: isFullSideBar ? 70 : 0,
+          borderRadius: 100,
+          paddingVertical: 15,
+          paddingHorizontal: 15,
+          paddingEnd: isFullSideBar ? 30 : 15,
+          // borderWidth: 0.2,
+        },
+      ]}>
+      <Icon iconName={iconName} width={27} height={27} />
+      {isFullSideBar ? (
+        <Text style={{marginStart: 20, fontSize: 20}}>{title}</Text>
+      ) : null}
+    </Pressable>
   )
 }
 

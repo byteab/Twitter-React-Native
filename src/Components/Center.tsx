@@ -11,7 +11,7 @@ export function Center() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 3,
+    flex: 2.2,
     justifyContent: 'center',
     alignItems: 'center',
   },
