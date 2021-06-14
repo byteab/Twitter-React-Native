@@ -16,6 +16,8 @@ export const SearchBar = () => {
         paddingStart: 15,
         width: 350,
         marginHorizontal: 10,
+        position: 'absolute',
+        top: 0,
       }}>
       <SearchSVG fill={colors.COLOR_BLACK_LIGHT_4} width={20} height={20} />
       <Text

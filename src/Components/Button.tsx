@@ -23,7 +23,7 @@ export const Button: FC<ChildProps> = ({
   const isDesktop = useMediaQuery({minWidth: 1266})
   const state = isDesktop ? 'desktop' : 'tablet'
   return (
-    <Pressable style={containerStyle({state})}>
+    <Pressable style={containerStyle?.({state})}>
       {renderIcon ? renderIcon({state}) : null}
       {renderText ? renderText({state}) : null}
     </Pressable>
