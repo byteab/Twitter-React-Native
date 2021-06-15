@@ -49,6 +49,7 @@ export function SideBarItem({
           paddingVertical: 15,
           paddingHorizontal: 15,
           paddingEnd: isFullSideBar ? 30 : 15,
+          cursor: 'pointer',
           // borderWidth: 0.2,
         },
       ]}>

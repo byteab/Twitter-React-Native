@@ -77,6 +77,7 @@ export function SideBar() {
                 borderRadius: 100,
                 marginStart: 4,
                 marginTop: 5,
+                cursor: 'pointer',
               },
               hovered
                 ? {
