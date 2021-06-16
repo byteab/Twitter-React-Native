@@ -12,7 +12,7 @@ export function RightBar() {
   return (
     <View style={styles.container}>
       <SearchBar />
-      <ScrollView style={{paddingTop: 45, width: '100%'}}>
+      <ScrollView style={{paddingTop: 5, width: '100%'}}>
         <Trends />
         <SuggestedFriends />
       </ScrollView>
@@ -104,11 +104,9 @@ function SuggestedFriends() {
         <Text style={{fontSize: 22, fontWeight: 'bold'}}>Who to follow</Text>
       </View>
       <View>
-        {Array(4)
-          .fill(0)
-          .map(() => {
-            return <FollowRowComponent />
-          })}
+        {followRecData.map((data) => {
+          return <FollowRowComponent {...data} />
+        })}
       </View>
       <View>
         <Pressable
@@ -132,7 +130,34 @@ function SuggestedFriends() {
     </View>
   )
 }
-const FollowRowComponent = () => {
+
+const followRecData = [
+  {
+    photo:
+      'https://pbs.twimg.com/profile_images/1360004712439767041/phm-6601_400x400.jpg',
+    name: 'Nicolas',
+    userName: '@necolas',
+  },
+  {
+    name: 'Evan Bacon',
+    photo:
+      'https://pbs.twimg.com/profile_images/1308332115919020032/jlqFOD33_400x400.jpg',
+    userName: '@Baconbrix',
+  },
+  {
+    name: 'Dan',
+    photo:
+      'https://pbs.twimg.com/profile_images/1336281436685541376/fRSl8uJP_400x400.jpg',
+    userName: '@dan_abramov',
+  },
+  {
+    name: 'Krzysztof Magiera',
+    photo:
+      'https://pbs.twimg.com/profile_images/1064786289311010816/zD2FlyxR_400x400.jpg',
+    userName: '@kzzzf',
+  },
+]
+const FollowRowComponent = ({name, userName, photo}) => {
   return (
     <Pressable
       style={({hovered}) => [
@@ -160,7 +185,7 @@ const FollowRowComponent = () => {
           backgroundColor: 'gray',
         }}
         source={{
-          uri: 'https://pbs.twimg.com/profile_images/1384599492440334340/yYCUVR8k_400x400.jpg',
+          uri: photo,
         }}
       />
       <View
@@ -168,9 +193,9 @@ const FollowRowComponent = () => {
           marginRight: 'auto',
           marginLeft: 13,
         }}>
-        <Text style={{fontWeight: 'bold', fontSize: 15}}>Nader Ξ Dabit</Text>
+        <Text style={{fontWeight: 'bold', fontSize: 15}}>{name}</Text>
         <Text style={{color: colors.COLOR_BLACK_LIGHT_4, paddingTop: 4}}>
-          @dabit3
+          {userName}
         </Text>
       </View>
       <Pressable
@@ -271,7 +296,7 @@ const styles = StyleSheet.create({
     borderColor: colors.COLOR_BLACK_LIGHT_6,
     borderLeftWidth: 0.1,
     alignItems: 'flex-start',
-    marginTop: 30,
+    // marginTop: 30,
     paddingStart: 20,
   },
 })

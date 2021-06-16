@@ -7,27 +7,38 @@ export const SearchBar = () => {
   return (
     <View
       style={{
-        backgroundColor: colors.COLOR_BLACK_LIGHT_6,
-        borderRadius: 100,
-        height: 45,
+        backgroundColor: '#fff',
         flexDirection: 'row',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
-        paddingStart: 15,
         width: 350,
         marginHorizontal: 10,
-        position: 'absolute',
+        position: 'sticky',
         top: 0,
+        zIndex: 1000,
+        paddingVertical: 4,
       }}>
-      <SearchSVG fill={colors.COLOR_BLACK_LIGHT_4} width={20} height={20} />
-      <Text
+      <View
         style={{
-          fontSize: 16,
-          color: colors.COLOR_BLACK_LIGHT_4,
-          marginHorizontal: 17,
+          backgroundColor: colors.COLOR_BLACK_LIGHT_6,
+          borderRadius: 100,
+          height: 45,
+          flexDirection: 'row',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          paddingStart: 15,
+          width: 350,
         }}>
-        Search Twitter
-      </Text>
+        <SearchSVG fill={colors.COLOR_BLACK_LIGHT_4} width={20} height={20} />
+        <Text
+          style={{
+            fontSize: 16,
+            color: colors.COLOR_BLACK_LIGHT_4,
+            marginHorizontal: 17,
+          }}>
+          Search Twitter
+        </Text>
+      </View>
     </View>
   )
 }

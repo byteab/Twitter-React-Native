@@ -64,6 +64,8 @@ export function SideBar() {
           borderColor: colors.COLOR_BLACK_LIGHT_6,
           borderRightWidth: 0.1,
           paddingEnd: !isFullSideBar ? 10 : 0,
+          position: 'sticky',
+          top: 0,
         }}>
         <View
           style={{
