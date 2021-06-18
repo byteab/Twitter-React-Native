@@ -10,26 +10,31 @@ import Star from '../assets/SVGs/Star'
 import {colors} from '../styles/colors'
 
 interface Props {
-  style: ViewStyle
+  style?: ViewStyle
+}
+
+export const CreateTweetTopRow: React.FC<Props> = ({}) => {
+  return (
+    <View style={styles.topRow}>
+      <Text style={styles.topRowText}>Home</Text>
+
+      <Pressable
+        style={({hovered}) => [
+          styles.startContainer,
+          hovered
+            ? {
+                backgroundColor: colors.COLOR_BLACK_LIGHT_6,
+              }
+            : {},
+        ]}>
+        <Star style={styles.commonSvgStyle} />
+      </Pressable>
+    </View>
+  )
 }
 export const CreateTweet: React.FC<Props> = ({style}) => {
   return (
     <View style={[styles.container, style]}>
-      <View style={styles.topRow}>
-        <Text style={styles.topRowText}>Home</Text>
-
-        <Pressable
-          style={({hovered}) => [
-            styles.startContainer,
-            hovered
-              ? {
-                  backgroundColor: colors.COLOR_BLACK_LIGHT_6,
-                }
-              : {},
-          ]}>
-          <Star style={styles.commonSvgStyle} />
-        </Pressable>
-      </View>
       <View style={styles.middleRow}>
         <Image
           style={styles.profileImage}
@@ -127,7 +132,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.01,
     paddingHorizontal: 15,
     borderBottomColor: colors.COLOR_BLACK_LIGHT_6,
-    paddingVertical: 10,
+    paddingVertical: 5,
+    position: 'sticky',
+    top: 0,
+    backgroundColor: '#fff',
+    zIndex: 100,
   },
   topRowText: {
     fontSize: 20,
@@ -150,6 +159,7 @@ const styles = StyleSheet.create({
   },
   bottomRow: {
     flexDirection: 'row',
+    paddingHorizontal: 15,
   },
   profileImage: {
     width: 50,
@@ -178,6 +188,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
     paddingVertical: 12,
     paddingHorizontal: 15,
+    marginEnd: 15,
   },
   buttonText: {
     fontSize: 15,
