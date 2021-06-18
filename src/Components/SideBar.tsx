@@ -47,6 +47,7 @@ const sideBarData = [
 export function SideBar() {
   const isSideBarVisible = useMediaQuery({minWidth: 500})
   const isFullSideBar = useMediaQuery({minWidth: 1266})
+  const isRightBarVisible = useMediaQuery({minWidth: 990})
 
   if (!isSideBarVisible) return null
 
@@ -58,7 +59,7 @@ export function SideBar() {
           height: WindowHeight,
           // width: '30%',
           // paddingHorizontal: 5,
-          flex: isFullSideBar ? 1.4 : 0.45,
+          flex: isFullSideBar ? 1.4 : isRightBarVisible ? 0.45 : 0.35,
           // alignItems: isFullSideBar ? 'flex-end' : 'center',
           alignItems: 'flex-end',
           borderColor: colors.COLOR_BLACK_LIGHT_6,

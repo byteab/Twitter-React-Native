@@ -9,4 +9,5 @@ export const colors = {
   COLOR_BLACK_LIGHT_4: '#5e5e5e',
   COLOR_BLACK_LIGHT_5: '#949494',
   COLOR_BLACK_LIGHT_6: '#ededed',
+  COLOR_BACKGROUND_TWITTER: 'rgb(247, 249, 250)',
 }

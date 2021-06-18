@@ -1,10 +1,11 @@
 import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
+import {CreateTweet} from '../Components/CreateTweet'
 
 export function Center() {
   return (
     <View style={styles.container}>
-      <Text>Center part</Text>
+      <CreateTweet style={styles.createTweet} />
     </View>
   )
 }
@@ -15,4 +16,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  createTweet: {},
 })

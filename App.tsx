@@ -5,6 +5,7 @@ import {StyleSheet, Text, View} from 'react-native'
 import {SideBar} from './src/Components/SideBar'
 import {Center} from './src/Components/Center'
 import {RightBar} from './src/Components/RightBar'
+import {colors} from './src/styles/colors'
 // TODO: fix all inline styles
 export default function App() {
   return (
@@ -20,7 +21,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.COLOR_BACKGROUND_TWITTER,
     // alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
