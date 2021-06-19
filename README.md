@@ -1,8 +1,11 @@
 # work in progress ....
 
 ## twitter clone built with expo
+### Responsive UI
 
-![Screen Shot 2021-06-16 at 11 18 51 PM](https://user-images.githubusercontent.com/46188784/122275852-6add5200-cef9-11eb-9084-e6ceccf95874.png)
-![Screen Shot 2021-06-16 at 11 21 00 PM](https://user-images.githubusercontent.com/46188784/122275976-8f392e80-cef9-11eb-82d5-28afd466aa13.png)
-![Screen Shot 2021-06-16 at 11 21 51 PM](https://user-images.githubusercontent.com/46188784/122276127-b7c12880-cef9-11eb-898d-8018ffc6f8e3.png)
+
+![Screen Shot 2021-06-20 at 12 19 38 AM](https://user-images.githubusercontent.com/46188784/122653958-8cd70e80-d15d-11eb-8829-041cc9c111ee.png)
+![Screen Shot 2021-06-20 at 12 20 16 AM](https://user-images.githubusercontent.com/46188784/122653960-8f396880-d15d-11eb-8fb0-738726bf198f.png)
+![Screen Shot 2021-06-20 at 12 20 45 AM](https://user-images.githubusercontent.com/46188784/122653965-9a8c9400-d15d-11eb-82a0-10a890148f90.png)
+
 
