@@ -7,8 +7,19 @@ import Comment from '../assets/SVGs/Comment'
 import Retweet from '../assets/SVGs/Retweet'
 import Love from '../assets/SVGs/Love'
 import Share from '../assets/SVGs/Share'
+import Anchor from '../assets/SVGs/HyperLinkIcon'
 
 export const Post = ({profileUrl, fullName, userNameAndDate, content}) => {
+  // TODO: analyze content
+  // grab the links out of content
+  // if there is a link create a box at the bottom
+  // render image, title and details
+  const image =
+    'https://pbs.twimg.com/card_img/1405268166406705160/ram-yQ8t?format=jpg&name=small'
+  const title = 'Accessible design: How much motion is too much motion?'
+  const details =
+    'A process breakdown of how to create Accessibility compliant interaction design within a framework.'
+  const linkItself = 'uxdesign.cc'
   return (
     <View style={styles.container}>
       <Image style={styles.profileImage} source={{uri: profileUrl}} />
@@ -19,6 +30,26 @@ export const Post = ({profileUrl, fullName, userNameAndDate, content}) => {
         </View>
         <View style={styles.actualContent}>
           <Text style={styles.contentText}>{content}</Text>
+          {image ? (
+            <View style={styles.mediaBox}>
+              <Image
+                source={{uri: image}}
+                style={styles.mediaImage}
+                resizeMode="cover"
+              />
+              <View style={styles.threeTextsInsideMediaView}>
+                <Text style={styles.mediaTitle}>{title}</Text>
+                <Text style={styles.mediaDetails}>{details}</Text>
+                <View style={styles.linkContainer}>
+                  <Anchor
+                    fill={colors.COLOR_BLACK_LIGHT_4}
+                    style={styles.anchor}
+                  />
+                  <Text style={styles.mediaIconLink}>{linkItself}</Text>
+                </View>
+              </View>
+            </View>
+          ) : null}
         </View>
         <View style={styles.actionListContainer}>
           <Pressable
@@ -128,7 +159,10 @@ const styles = StyleSheet.create({
   actualContent: {
     paddingTop: 5,
   },
-  contentText: {},
+  contentText: {
+    fontWeight: '400',
+    fontSize: 15,
+  },
   linkContent: {},
   linkContentImage: {},
   linkContentTitle: {},
@@ -152,5 +186,48 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     justifyContent: 'flex-start',
     marginLeft: '-1%',
+  },
+  threeTextsInsideMediaView: {
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    padding: 15,
+  },
+  anchor: {
+    width: 34,
+    height: 20,
+    marginStart: -5,
+  },
+  mediaImage: {
+    marginStart: 'auto',
+    borderBottomWidth: 1,
+    borderColor: 'rgba(0,0,0,0.2)',
+    width: '100%',
+    height: 222,
+  },
+  mediaBox: {
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.2)',
+    width: '90%',
+    borderRadius: 15,
+    overflow: 'hidden',
+    marginTop: 10,
+  },
+  linkContainer: {
+    flexDirection: 'row',
+    paddingVertical: 4,
+    alignItems: 'center',
+  },
+  mediaTitle: {
+    fontSize: 15,
+    fontWeight: '500',
+    marginBottom: 5,
+  },
+  mediaDetails: {
+    fontSize: 15,
+    marginBottom: 5,
+    color: colors.COLOR_BLACK_LIGHT_4,
+  },
+  mediaIconLink: {
+    color: colors.COLOR_BLACK_LIGHT_3,
   },
 })
