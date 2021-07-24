@@ -1,6 +1,8 @@
 import React from 'react'
-import {View, Text, Image, StyleSheet} from 'react-native'
+import {View, Text, Image, StyleSheet, Linking} from 'react-native'
 import {Pressable} from 'react-native-web-hover'
+// extract urls out of a string
+import getUrls from 'get-urls'
 import HyperLinkIcon from '../assets/SVGs/HyperLinkIcon'
 import {colors} from '../styles/colors'
 import Comment from '../assets/SVGs/Comment'
@@ -9,17 +11,41 @@ import Love from '../assets/SVGs/Love'
 import Share from '../assets/SVGs/Share'
 import Anchor from '../assets/SVGs/HyperLinkIcon'
 
+interface IData {
+  image: string
+  title: string
+  description: string
+}
+
 export const Post = ({profileUrl, fullName, userNameAndDate, content}) => {
-  // TODO: analyze content
-  // grab the links out of content
-  // if there is a link create a box at the bottom
-  // render image, title and details
-  const image =
-    'https://pbs.twimg.com/card_img/1405268166406705160/ram-yQ8t?format=jpg&name=small'
-  const title = 'Accessible design: How much motion is too much motion?'
-  const details =
-    'A process breakdown of how to create Accessibility compliant interaction design within a framework.'
-  const linkItself = 'uxdesign.cc'
+  const urls = Array.from(getUrls(content))
+  const [data, setData] = React.useState<IData | undefined>()
+  React.useEffect(() => {
+    if (urls.length) {
+      const metascraper = require('metascraper')([
+        require('metascraper-description')(),
+        require('metascraper-image')(),
+        require('metascraper-title')(),
+      ])
+
+      ;(async () => {
+        try {
+          const url = urls[0]
+          const res = await fetch('http://localhost:5000/' + url)
+          console.log('going to call metascraper')
+          const metadata = await metascraper({
+            html: await res.text(),
+            url: url,
+          })
+          console.log('after calling metascraper')
+          setData(metadata)
+          console.log(metadata)
+        } catch (error) {
+          console.log('error is', error)
+        }
+      })()
+    }
+  }, [])
   return (
     <View style={styles.container}>
       <Image style={styles.profileImage} source={{uri: profileUrl}} />
@@ -30,23 +56,29 @@ export const Post = ({profileUrl, fullName, userNameAndDate, content}) => {
         </View>
         <View style={styles.actualContent}>
           <Text style={styles.contentText}>{content}</Text>
-          {image ? (
+          {data?.image ? (
             <View style={styles.mediaBox}>
               <Image
-                source={{uri: image}}
+                source={{uri: data.image}}
                 style={styles.mediaImage}
                 resizeMode="cover"
               />
               <View style={styles.threeTextsInsideMediaView}>
-                <Text style={styles.mediaTitle}>{title}</Text>
-                <Text style={styles.mediaDetails}>{details}</Text>
-                <View style={styles.linkContainer}>
-                  <Anchor
-                    fill={colors.COLOR_BLACK_LIGHT_4}
-                    style={styles.anchor}
-                  />
-                  <Text style={styles.mediaIconLink}>{linkItself}</Text>
-                </View>
+                <Text style={styles.mediaTitle}>{data.title}</Text>
+                <Text style={styles.mediaDetails}>{data.description}</Text>
+                {urls.length ? (
+                  <View style={styles.linkContainer}>
+                    <Anchor
+                      fill={colors.COLOR_BLACK_LIGHT_4}
+                      style={styles.anchor}
+                    />
+                    <Text
+                      onPress={() => Linking.openURL(urls[0])}
+                      style={styles.mediaIconLink}>
+                      {urls[0]}
+                    </Text>
+                  </View>
+                ) : null}
               </View>
             </View>
           ) : null}
@@ -210,7 +242,7 @@ const styles = StyleSheet.create({
     width: '90%',
     borderRadius: 15,
     overflow: 'hidden',
-    marginTop: 10,
+    marginTop: 20,
   },
   linkContainer: {
     flexDirection: 'row',
@@ -229,5 +261,6 @@ const styles = StyleSheet.create({
   },
   mediaIconLink: {
     color: colors.COLOR_BLACK_LIGHT_3,
+    cursor: 'pointer',
   },
 })
