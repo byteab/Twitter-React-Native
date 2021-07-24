@@ -1,0 +1,13 @@
+diff --git a/node_modules/@metascraper/helpers/index.js b/node_modules/@metascraper/helpers/index.js
+index f3642ce..e6ad717 100644
+--- a/node_modules/@metascraper/helpers/index.js
++++ b/node_modules/@metascraper/helpers/index.js
+@@ -29,7 +29,7 @@ const fileExtension = require('file-extension')
+ const _normalizeUrl = require('normalize-url')
+ const smartquotes = require('smartquotes')
+ const { decodeHTML } = require('entities')
+-const memoizeOne = require('memoize-one')
++const memoizeOne = require('memoize-one').default
+ const mimeTypes = require('mime-types')
+ const hasValues = require('has-values')
+ const chrono = require('chrono-node')

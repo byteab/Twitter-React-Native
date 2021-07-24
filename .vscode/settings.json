@@ -2,5 +2,8 @@
   "launch": {
     "configurations": [],
     "compounds": []
-  }
+  },
+  "cSpell.words": [
+    "metascraper"
+  ]
 }
