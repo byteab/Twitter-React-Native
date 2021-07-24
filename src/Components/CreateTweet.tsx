@@ -1,5 +1,13 @@
 import React from 'react'
-import {StyleSheet, Image, View, Text, ViewStyle} from 'react-native'
+import {
+  StyleSheet,
+  Image,
+  View,
+  Text,
+  ViewStyle,
+  TextInput,
+  Platform,
+} from 'react-native'
 import {Pressable} from 'react-native-web-hover'
 import ImageSvg from '../assets/SVGs/ImageSvg'
 import GifSvg from '../assets/SVGs/GifSvg'
@@ -8,6 +16,8 @@ import Face from '../assets/SVGs/HappyFace'
 import CalenderIcon from '../assets/SVGs/Calender'
 import Star from '../assets/SVGs/Star'
 import {colors} from '../styles/colors'
+import {useState} from 'react'
+import {useStore} from '../store/store'
 
 interface Props {
   style?: ViewStyle
@@ -33,6 +43,22 @@ export const CreateTweetTopRow: React.FC<Props> = ({}) => {
   )
 }
 export const CreateTweet: React.FC<Props> = ({style}) => {
+  const [data, setData] = useState('')
+  const storeTweet = useStore((state) => state.addPost)
+  const onChange = (text: string) => {
+    setData(text)
+  }
+  const tweet = () => {
+    if (data) {
+      storeTweet({
+        fullName: 'Ehsan Sarshar',
+        userNameAndDate: '@TheEhsanSarshar . 10m',
+        profileUrl:
+          'https://pbs.twimg.com/profile_images/1389235685345959942/B1yoUQGj_400x400.jpg',
+        content: data,
+      })
+    }
+  }
   return (
     <View style={[styles.container, style]}>
       <View style={styles.middleRow}>
@@ -42,7 +68,13 @@ export const CreateTweet: React.FC<Props> = ({style}) => {
             uri: 'https://pbs.twimg.com/profile_images/1389235685345959942/B1yoUQGj_400x400.jpg',
           }}
         />
-        <Text style={styles.middleRowText}>What's happening?</Text>
+        <TextInput
+          style={styles.middleRowText}
+          placeholder="What's happening?"
+          value={data}
+          multiline={true}
+          onChangeText={onChange}
+        />
       </View>
       <View style={styles.bottomRow}>
         <View style={styles.iconsContainer}>
@@ -111,7 +143,9 @@ export const CreateTweet: React.FC<Props> = ({style}) => {
             />
           </Pressable>
         </View>
-        <Pressable style={styles.button}>
+        <Pressable
+          onPress={tweet}
+          style={data ? styles.button : styles.buttonDisabled}>
           <Text style={styles.buttonText}>Tweet</Text>
         </Pressable>
       </View>
@@ -156,6 +190,17 @@ const styles = StyleSheet.create({
     color: colors.COLOR_BLACK_LIGHT_4,
     fontWeight: '500',
     paddingTop: 5,
+    outlineStyle: 'none',
+    width: '100%',
+    height: '100%',
+    flexWrap: 'wrap',
+    // ...Platform.select({
+    //   web: {
+    //     input: {
+    //       outline: 'none',
+    //     },
+    //   },
+    // }),
   },
   bottomRow: {
     flexDirection: 'row',
@@ -183,6 +228,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
   },
   button: {
+    borderRadius: 100,
+    backgroundColor: colors.primaryColor,
+    paddingVertical: 12,
+    paddingHorizontal: 15,
+    marginEnd: 15,
+    cursor: 'pointer',
+  },
+  buttonDisabled: {
     borderRadius: 100,
     backgroundColor: colors.primaryColor,
     opacity: 0.5,
