@@ -1,8 +1,8 @@
 
 
 ## React Native Expo twitter clone
-#
 ###  work in progress ....
+
 ## How to run
 
 install packages in the root directory and inside `proxy-server` folder
