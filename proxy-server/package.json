@@ -4,7 +4,7 @@
   "description": "",
   "main": "proxy.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node proxy.js"
   },
   "keywords": [],
   "author": "",
