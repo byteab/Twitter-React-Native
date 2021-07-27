@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest --config ./jest.config.js --watchAll"
   },
   "dependencies": {
     "@expo/match-media": "^0.1.0",
@@ -13,11 +14,6 @@
     "expo": "~41.0.1",
     "expo-status-bar": "~1.0.4",
     "get-urls": "^10.0.0",
-    "memoize-one": "^5.2.1",
-    "metascraper": "^5.22.9",
-    "metascraper-description": "^5.22.8",
-    "metascraper-image": "^5.22.8",
-    "metascraper-title": "^5.22.8",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
@@ -29,11 +25,13 @@
     "zustand": "^3.5.7"
   },
   "devDependencies": {
-    "patch-package": "^6.4.7",
     "@babel/core": "^7.9.0",
+    "@testing-library/react-native": "^7.2.0",
+    "@types/jest": "^26.0.24",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
     "@types/react-responsive": "^8.0.2",
+    "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
     "eslint": "^7.28.0",
@@ -43,7 +41,11 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-react-native": "^3.11.0",
+    "jest-expo": "^42.0.1",
+    "patch-package": "^6.4.7",
     "prettier": "^2.3.1",
+    "react-test-renderer": "^17.0.2",
+    "ts-node": "^10.1.0",
     "typescript": "~4.0.0"
   },
   "private": true
