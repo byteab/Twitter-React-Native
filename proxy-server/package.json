@@ -15,6 +15,12 @@
     "cors-anywhere": "^0.4.4",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
+    "got": "^11.8.2",
+    "memoize-one": "^5.2.1",
+    "metascraper": "^5.22.9",
+    "metascraper-description": "^5.22.8",
+    "metascraper-image": "^5.22.8",
+    "metascraper-title": "^5.22.8",
     "request": "^2.88.2"
   }
 }
