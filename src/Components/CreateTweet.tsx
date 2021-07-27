@@ -202,10 +202,10 @@ const styles = StyleSheet.create({
     //   },
     // }),
   },
-  bottomRow: {
-    flexDirection: 'row',
-    paddingHorizontal: 15,
-  },
+  // bottomRow: {
+  //   flexDirection: 'row',
+  //   paddingHorizontal: 15,
+  // },
   profileImage: {
     width: 50,
     height: 50,
