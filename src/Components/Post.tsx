@@ -17,29 +17,28 @@ interface IData {
   description: string
 }
 
-export const Post = ({profileUrl, fullName, userNameAndDate, content}) => {
+interface IPost {
+  profileUrl: string
+  fullName: string
+  userNameAndDate: string
+  content: string
+}
+export const Post: React.FC<IPost> = ({
+  profileUrl,
+  fullName,
+  userNameAndDate,
+  content,
+}) => {
   const urls = Array.from(getUrls(content))
   const [data, setData] = React.useState<IData | undefined>()
   React.useEffect(() => {
     if (urls.length) {
-      const metascraper = require('metascraper')([
-        require('metascraper-description')(),
-        require('metascraper-image')(),
-        require('metascraper-title')(),
-      ])
-
       ;(async () => {
         try {
-          const url = urls[0]
-          const res = await fetch('http://localhost:5000/' + url)
-          console.log('going to call metascraper')
-          const metadata = await metascraper({
-            html: await res.text(),
-            url: url,
-          })
-          console.log('after calling metascraper')
-          setData(metadata)
-          console.log(metadata)
+          const url = urls[0].replace(/(^\w+:|^)\/\//, '')
+          const res = await fetch('http://localhost:5000/proxy/' + url)
+          const body = await res.json()
+          setData(body)
         } catch (error) {
           console.log('error is', error)
         }
