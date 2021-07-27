@@ -22,19 +22,24 @@ app.use('*', (req, res, next) => {
   next()
 })
 
-app.get('/proxy/:link', async (req, res) => {
-  let link = req.params.link
-  if (link) link = 'https://' + link
-  try {
-    const {body: html, url} = await got(link)
-    const metadata = await metascraper({
-      html,
-      url,
-    })
-    res.json(metadata)
-  } catch (error) {
-    res.send('error on scrapping the link ' + error.message)
-    console.log('error is', error)
+app.get('/proxy', async (req, res) => {
+  let link = req.get('link')
+  if (link) {
+    link = 'https://' + link.replace(/"/g, '')
+    try {
+      const {body: html, url} = await got(link)
+      const metadata = await metascraper({
+        html,
+        url,
+      })
+      res.json(metadata)
+    } catch (error) {
+      res.send('error on scrapping the link ' + error.message)
+      console.log('error is', error)
+    }
+  } else {
+    res.status(404)
+    res.send('link header parameter not provided')
   }
 })
 

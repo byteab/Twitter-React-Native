@@ -35,8 +35,12 @@ export const Post: React.FC<IPost> = ({
     if (urls.length) {
       ;(async () => {
         try {
-          const url = urls[0].replace(/(^\w+:|^)\/\//, '')
-          const res = await fetch('http://localhost:5000/proxy/' + url)
+          const link = urls[0].replace(/(^\w+:|^)\/\//, '')
+          const res = await fetch(`http://localhost:5000/proxy`, {
+            headers: {
+              link,
+            },
+          })
           const body = await res.json()
           setData(body)
         } catch (error) {
