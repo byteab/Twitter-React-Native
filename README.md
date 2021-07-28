@@ -23,3 +23,7 @@ cd proxy-server & yarn & yarn start
 ![Screen Shot 2021-06-20 at 12 20 45 AM](https://user-images.githubusercontent.com/46188784/122653965-9a8c9400-d15d-11eb-82a0-10a890148f90.png)
 
 
+### How to reach me
+
+  #### twitter: [TheEhsanSarshar](twitter.com/TheEhsanSarshar) 
+  #### `I'm available for remote contract jobs`
