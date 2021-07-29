@@ -27,4 +27,4 @@ cd proxy-server & yarn & yarn start
 
   #### twitter: [TheEhsanSarshar](twitter.com/TheEhsanSarshar)
   #### Email: ehsan.herai@gmail.com 
-  #### `I'm available for remote contract jobs`
+  #### `I'm available for freelancing or Remote contract jobs`
