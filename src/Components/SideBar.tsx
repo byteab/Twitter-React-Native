@@ -1,5 +1,5 @@
 import React from 'react'
-import {Dimensions, Text, View} from 'react-native'
+import {Dimensions, Platform, Text, View, ViewStyle} from 'react-native'
 import {useMediaQuery} from 'react-responsive'
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen'
 import {SideBarItem} from './SideBarItem'
@@ -54,20 +54,26 @@ export function SideBar() {
   if (isSideBarVisible) {
     return (
       <View
-        style={{
-          backgroundColor: '#fff',
-          height: WindowHeight,
-          // width: '30%',
-          // paddingHorizontal: 5,
-          flex: isFullSideBar ? 1.4 : isRightBarVisible ? 0.45 : 0.35,
-          // alignItems: isFullSideBar ? 'flex-end' : 'center',
-          alignItems: 'flex-end',
-          borderColor: colors.COLOR_BLACK_LIGHT_6,
-          borderRightWidth: 0.1,
-          paddingEnd: !isFullSideBar ? 10 : 0,
-          position: 'sticky',
-          top: 0,
-        }}>
+        style={
+          {
+            backgroundColor: '#fff',
+            height: WindowHeight,
+            // width: '30%',
+            // paddingHorizontal: 5,
+            flex: isFullSideBar ? 1.4 : isRightBarVisible ? 0.45 : 0.35,
+            // alignItems: isFullSideBar ? 'flex-end' : 'center',
+            alignItems: 'flex-end',
+            borderColor: colors.COLOR_BLACK_LIGHT_6,
+            borderRightWidth: 0.1,
+            paddingEnd: !isFullSideBar ? 10 : 0,
+            ...Platform.select({
+              web: {
+                position: 'sticky',
+              },
+            }),
+            top: 0,
+          } as ViewStyle
+        }>
         <View
           style={{
             justifyContent: 'center',
@@ -80,7 +86,11 @@ export function SideBar() {
                 borderRadius: 100,
                 marginStart: 4,
                 marginTop: 5,
-                cursor: 'pointer',
+                ...Platform.select({
+                  web: {
+                    cursor: 'pointer',
+                  },
+                }),
               },
               hovered
                 ? {

@@ -167,11 +167,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     borderBottomColor: colors.COLOR_BLACK_LIGHT_6,
     paddingVertical: 5,
-    position: 'sticky',
+    ...Platform.select({
+      web: {
+        position: 'sticky',
+      },
+    }),
     top: 0,
     backgroundColor: '#fff',
     zIndex: 100,
-  },
+  } as ViewStyle,
   topRowText: {
     fontSize: 20,
     color: colors.COLOR_BLACK_LIGHT_4,
@@ -190,7 +194,11 @@ const styles = StyleSheet.create({
     color: colors.COLOR_BLACK_LIGHT_4,
     fontWeight: '500',
     paddingTop: 5,
-    outlineStyle: 'none',
+    ...Platform.select({
+      web: {
+        outlineStyle: 'none',
+      },
+    }),
     width: '100%',
     height: '100%',
     flexWrap: 'wrap',
@@ -233,7 +241,11 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 15,
     marginEnd: 15,
-    cursor: 'pointer',
+    ...Platform.select({
+      web: {
+        cursor: 'pointer',
+      },
+    }),
   },
   buttonDisabled: {
     borderRadius: 100,

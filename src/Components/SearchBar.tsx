@@ -1,23 +1,29 @@
 import React from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, Platform, ViewStyle} from 'react-native'
 import SearchSVG from '../assets/SVGs/Search'
 import {colors} from '../styles/colors'
 
 export const SearchBar = () => {
   return (
     <View
-      style={{
-        backgroundColor: '#fff',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: 350,
-        marginHorizontal: 10,
-        position: 'sticky',
-        top: 0,
-        zIndex: 1000,
-        paddingVertical: 4,
-      }}>
+      style={
+        {
+          backgroundColor: '#fff',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: 350,
+          marginHorizontal: 10,
+          ...Platform.select({
+            web: {
+              position: 'sticky',
+            },
+          }),
+          top: 0,
+          zIndex: 1000,
+          paddingVertical: 4,
+        } as ViewStyle
+      }>
       <View
         style={{
           backgroundColor: colors.COLOR_BLACK_LIGHT_6,

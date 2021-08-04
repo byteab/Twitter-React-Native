@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, Platform} from 'react-native'
 import {Pressable} from 'react-native-web-hover'
 import Twitter from '../assets/SVGs/Twitter'
 import Bell from '../assets/SVGs/Bell'
@@ -49,7 +49,11 @@ export function SideBarItem({
           paddingVertical: 15,
           paddingHorizontal: 15,
           paddingEnd: isFullSideBar ? 30 : 15,
-          cursor: 'pointer',
+          ...Platform.select({
+            web: {
+              cursor: 'pointer',
+            },
+          }),
           // borderWidth: 0.2,
         },
       ]}>

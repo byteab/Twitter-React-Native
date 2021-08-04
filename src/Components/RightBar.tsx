@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, StyleSheet, Image} from 'react-native'
+import {View, Text, StyleSheet, Image, Platform} from 'react-native'
 import {useMediaQuery} from 'react-responsive'
 import {colors} from '../styles/colors'
 import {Ionicons} from '@expo/vector-icons'
@@ -68,7 +68,11 @@ function Trends() {
             {
               paddingVertical: 20,
               paddingHorizontal: 14,
-              cursor: 'pointer',
+              ...Platform.select({
+                web: {
+                  cursor: 'pointer',
+                },
+              }),
             },
           ]}>
           <Text style={{fontSize: 15, color: colors.primaryColor}}>
@@ -119,7 +123,11 @@ function SuggestedFriends() {
             {
               paddingVertical: 20,
               paddingHorizontal: 14,
-              cursor: 'pointer',
+              ...Platform.select({
+                web: {
+                  cursor: 'pointer',
+                },
+              }),
             },
           ]}>
           <Text style={{fontSize: 15, color: colors.primaryColor}}>
@@ -174,7 +182,11 @@ const FollowRowComponent = ({name, userName, photo}) => {
           borderBottomColor: colors.COLOR_BLACK_LIGHT_6,
           paddingVertical: 13,
           paddingHorizontal: 15,
-          cursor: 'pointer',
+          ...Platform.select({
+            web: {
+              cursor: 'pointer',
+            },
+          }),
         },
       ]}>
       <Image
@@ -243,7 +255,11 @@ const TrendComponent = ({
           paddingVertical: 13,
           borderBottomWidth: 0.01,
           borderBottomColor: colors.COLOR_BLACK_LIGHT_6,
-          cursor: 'pointer',
+          ...Platform.select({
+            web: {
+              cursor: 'pointer',
+            },
+          }),
         },
       ]}>
       <View
