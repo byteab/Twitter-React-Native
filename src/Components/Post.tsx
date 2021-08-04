@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, Image, StyleSheet, Linking} from 'react-native'
+import {View, Text, Image, StyleSheet, Linking, Platform} from 'react-native'
 import {Pressable} from 'react-native-web-hover'
 // extract urls out of a string
 import getUrls from 'get-urls'
@@ -169,6 +169,7 @@ const styles = StyleSheet.create({
     paddingEnd: 15,
     paddingTop: 15,
     flexDirection: 'row',
+    marginBottom: 4,
   },
   allContent: {
     paddingStart: 10,
@@ -264,6 +265,10 @@ const styles = StyleSheet.create({
   },
   mediaIconLink: {
     color: colors.COLOR_BLACK_LIGHT_3,
-    cursor: 'pointer',
+    ...Platform.select({
+      web: {
+        cursor: 'pointer',
+      },
+    }),
   },
 })
