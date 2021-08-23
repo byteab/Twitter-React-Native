@@ -3,6 +3,11 @@
 ## React Native Expo twitter clone
 ###  work in progress ....
 
+## TODO
+- [ ] remove all inline styles and use @callstack/react-themeprovider
+- [ ] migrade the sidebar to react-navigation
+- [ ] implement other pages
+
 ## How to run
 
 install packages in the root directory and inside `proxy-server` folder
