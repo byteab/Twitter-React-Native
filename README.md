@@ -1,7 +1,7 @@
 
 
 ## React Native Expo twitter clone
-###  work in progress ....
+## 🦺 work in progress ....
 
 ## TODO
 - [ ] remove all inline styles and use @callstack/react-themeprovider
