@@ -10,7 +10,7 @@
 
 ## How to run
 
-install packages in the root directory and inside `proxy-server` folder
+install packages in the root and `proxy-server` folder
 and then run both expo and proxy-server
 ```bash
 yarn & yarn start
