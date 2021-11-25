@@ -30,6 +30,6 @@ cd proxy-server & yarn & yarn start
 
 ### How to reach me
 
-  #### twitter: [TheEhsanSarshar](twitter.com/TheEhsanSarshar)
+  #### twitter: [TheEhsanSarshar](https://twitter.com/TheEhsanSarshar)
   #### Email: ehsan.herai@gmail.com 
   #### `I'm available for freelancing or Remote contract jobs`
