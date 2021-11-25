@@ -1,6 +1,6 @@
 
 
-## React Native Expo twitter clone
+## React Native Expo Responsive twitter clone
 ## 🦺 work in progress ....
 
 ## TODO
