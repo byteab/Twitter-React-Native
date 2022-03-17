@@ -5,7 +5,7 @@
 
 ## TODO
 - [ ] remove all inline styles and use @callstack/react-themeprovider
-- [ ] migrade to react-navigation
+- [ ] migrate to react-navigation
 - [ ] implement other pages
 
 ## How to run
